@@ -35,18 +35,53 @@ public class Main {
         menu.addAll(beverages1);
         menu.addAll(desserts1);
 
-//        System.out.println(dishes.createDishes(dishes1));
-//        System.out.println(dishes.getAllDishes());
-//        dishes.remove("plov");
-//        System.out.println(dishes.getAllDishes());
-//        dishes.getByName("plov",menu);
-//        dishes.sortBypPrice(menu);
-//        System.out.println(menu);
-
         System.out.println("==================================");
         System.out.println("              MENU");
         System.out.println("==================================");
+        while (true) {
 
-
+            System.out.println("1-Dishes  ||  2-Salads  ||  3-Beverages  \n4-Dessert  ||  5-Sort by price  || 6-Get by name ");
+            int i = scanner1.nextInt();
+            if (i == 1) {
+                System.out.println("1-all dishes || 2-remove dishes || 3-");
+                int j = scanner1.nextInt();
+                if (j == 1) System.out.println(dishes.getAllDishes());
+                if (2 == j) {
+                    String name = scanner.nextLine();
+                    System.out.println(dishes.remove(name));
+                } else System.out.println("invalid command");
+            }
+            if (2 == i) {
+                System.out.println("1-all salads || 2-remove salad");
+                int j = scanner1.nextInt();
+                if (j == 1) System.out.println(salads.getAllSalads());
+                if (j == 2){
+                    String name = scanner.nextLine();
+                    System.out.println(salads.remove(name));
+                }else System.out.println("invalid number");
+            }if (3 == i){
+                System.out.println("1-All beverages || 2-Remove beverages");
+                int j = scanner1.nextInt();
+                if (j == 1) System.out.println(beverages.getAllBeverages());
+                if (j == 2){
+                    String name = scanner.nextLine();
+                    System.out.println(beverages.remove(name));
+                }else System.out.println("invalid command");
+            }if (4 == i){
+                System.out.println("1-All deserts || 2-Remove dessert");
+                int j = scanner1.nextInt();
+                if (j == 1) System.out.println(dessert.getAllDessert());
+                if (j == 2){
+                    String name = scanner.nextLine();
+                    System.out.println(dessert.remove(name));
+                }
+            }if (i == 5){
+                dishes.sortBypPrice(menu);
+            }if (i == 6){
+                System.out.println("Enter name of food:");
+                String name = scanner.nextLine();
+                dishes.getByName(name,menu);
+            }else System.out.println("invalid command!!!");
+        }
     }
 }
